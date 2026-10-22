@@ -19,11 +19,10 @@ int main(void) {
     printf("X is less than 10\n");
   else if (x > 10)
     printf("X is greater than 10\n");
-  else if (x == 10) {
+  else if (x == 10)
     printf("X is equal to 10\n");
-  } else {
+  else
     printf("idk what X is\n");
-  }
 
   // While Statements
   int y = 1;
