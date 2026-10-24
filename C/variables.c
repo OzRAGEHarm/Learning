@@ -1,14 +1,19 @@
 /*
   Variables and Types
+  compile with gcc -Wall -Wextra -g -o out/variables variables.c
+
+  No warnings are emitted when this file is compiled
 
   Rules:
     You can’t start a variable with a digit 0-9.
     You can’t start a variable name with two underscores.
     You can’t start a variable name with an underscore followed by a capital A-Z.
+    You can't have a variable who's name is a reserved keyword (e.g. bool, true, int, char, etc.)
 */
 
 // preprocessor before compiler even touches code
 #include <stdio.h> // standard I/O header file
+#include <stdbool.h> // bool, true, and false come from here before C23 (I'm on C23 where they're built in, but including it doesn't hurt)
 
 int main(void) {
   int i;                     // holds signed integers (-1, 0, 1, etc.)
@@ -16,12 +21,19 @@ int main(void) {
 
   i = 3;                     // assign i to 3
   f = 2.5;                   // assign f to 2.5
-  char *s = "Hello, World!"; // char *<name> (char pointer) is string type
+  const char *s = "Hello, World!"; // pointer to the first char of a string literal (C has no string type, a string is a char array ending in '\0')
+  // could also be written as const char s[] = "Hello, World!"; (an array holding its own copy, without const it would be modifiable)
+
+  // s[0] = 'D'; not allowed because the characters of a string literal are read-only 
+  // (const makes the compiler reject it, without const it is undefined behavior and usually crashes)
+  // s = "Different Text"; allowed because s is just a pointer, this makes it point at a different string and leaves the original literal unchanged
+  // printf("%c\n", s[0]); // prints the first character in the string, in this case it would be 'H'
 
   // format strings have special sequences that start with %,
   // %s means to print as a string
   // %d means to print as an integer
   // %f means to print as a float
+  // %c means to print as a char (character)
   // each go in order based on parameter order, s is a string, i is an integer, and f is a float so %s, %d, and %f
   printf("%s | i = %d | f = %f\n", s, i, f); // print variables with format string
 

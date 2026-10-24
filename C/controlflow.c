@@ -1,5 +1,21 @@
 /*
   Control Flow
+  compile with gcc -Wall -Wextra -g -o out/controlflow controlflow.c
+
+  Warnings this file gives:
+  controlflow.c: In function 'main':
+  controlflow.c:13:3: warning: this 'if' clause does not guard... [-Wmisleading-indentation]
+    13 |   if (x < 10)
+       |   ^~
+  controlflow.c:15:5: note: ...this statement, but the latter is misleadingly indented as if it were guarded by the 'if'
+    15 |     printf("unconditional print message because yes\n"); // Unconditional, will print no matter what
+       |     ^~~~~~
+  controlflow.c:99:7: warning: this statement may fall through [-Wimplicit-fallthrough=]
+    99 |       printf("a 0\n");
+       |       ^~~~~~~~~~~~~~~
+  controlflow.c:103:5: note: here
+    103 |     case 1:
+        |     ^~~~
 */
 
 #include <stdio.h>

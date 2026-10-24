@@ -1,7 +1,10 @@
 /*
   Basic Hello World
-  compile with gcc -o hello hello.c
-  '-o hello' means what is the output file's name going to be and hello.c is the compiled file
+  compile with gcc -Wall -Wextra -g -o out/hello hello.c
+  '-o out/hello' means what is the output file's name going to be and hello.c is the source file that is compiled,
+  it is located in the 'out' directory and is named 'hello', so to run it, do './out/hello'
+
+  No warnings are emitted when this file is compiled
 */
 
 

@@ -1,5 +1,33 @@
 /*
   Operators and Expressions
+  compile with gcc -Wall -Wextra -g -o out/operators operators.c
+
+  Warnings this file gives:
+  operators.c: In function 'main':
+  operators.c:72:9: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    72 |   x = (1, 2, 3);
+        |         ^
+  operators.c:72:12: warning: left-hand operand of comma expression has no effect [-Wunused-value]
+    72 |   x = (1, 2, 3);
+        |            ^
+  operators.c:81:5: warning: statement with no effect [-Wunused-value]
+    81 |   a == b;  // True if a is equivalent to b, comparison is double equals (==) and assignment is single equals (=)
+        |   ~~^~~~
+  operators.c:82:5: warning: statement with no effect [-Wunused-value]
+    82 |   a != b;  // True if a is not equivalent to b
+        |   ~~^~~~
+  operators.c:83:5: warning: statement with no effect [-Wunused-value]
+    83 |   a < b;   // True if a is less than b
+        |   ~~^~~
+  operators.c:84:5: warning: statement with no effect [-Wunused-value]
+    84 |   a > b;   // True if a is greater than b
+        |   ~~^~~
+  operators.c:85:5: warning: statement with no effect [-Wunused-value]
+    85 |   a <= b;  // True if a is less than or equal to b
+        |   ~~^~~~
+  operators.c:86:5: warning: statement with no effect [-Wunused-value]
+    86 |   a >= b;  // True if a is greater than or equal to b
+        |   ~~^~~~
 */
 
 #include <stdio.h>
@@ -105,16 +133,16 @@ int main(void) {
 
   // above is equivalent to:
   if (x <= 15)
-    printf("x is greater than 15\n");
+    printf("x is not greater than 15\n");
 
   // The sizeof Operator, used to know the size in bytes of a variable or data type in memory
   // different data types can be different sizes on different machines, except char, char is always 1 byte
   // C has a special type called size_t specifically for the return type from sizeof
 
-  // %zu is the format specifier for size_t, some compilers reject the z part, mine also allows just %u
-  printf("%zu\n", sizeof(char)); // 1
-  printf("%u\n", sizeof(int));   // 4 on my pc
-  printf("%u\n", sizeof(3.14));  // 8 on my pc
+  // %zu is the format specifier for size_t, some compilers reject the z part so remove it to be %u instead if that happens
+  printf("%zu\n", sizeof(char));  // 1
+  printf("%zu\n", sizeof(int));   // 4 on my pc
+  printf("%zu\n", sizeof(3.14));  // 8 on my pc
 
   // the reason for the newline character (\n) after each print statement is because if there were not one, it would print everything onto a singular line
   // which would be hard to read what was printed to the terminal
