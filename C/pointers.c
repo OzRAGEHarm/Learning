@@ -72,7 +72,7 @@ int main(void) {
 
   // Since the pointer does not point to anything, dereferencing it is undefined behavior and could result in a crash
   // int *c = NULL;
-  // *c = 12 // CRASH
+  // c = 12; // CRASH
   // pointer points to garbage unless explicitly assigning it to point to an address or NULL
 
   // Note on Declaring pointers
@@ -88,7 +88,7 @@ int main(void) {
   // Prints size of an 'int'
   printf("size of int: %zu\n", sizeof(int)); // 4 on my pc
 
-  // d is type 'int *', so prints size of 'int*' (int-pointer)
+  // d is type 'int*' (int-pointer), so prints size of 'int*' (int-pointer)
   printf("size of d: %zu\n", sizeof d); // 8 on my pc
 
   // *d is type 'int', so prints size of 'int' (dereferenced)
